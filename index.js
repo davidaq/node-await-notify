@@ -3,6 +3,7 @@ function Subject() {
 }
 
 Subject.prototype.wait = function (timeout) {
+  var self = this;
   var waiter = {};
   this.waiters.push(waiter);
   var promise = new Promise(function (resolve) {
@@ -17,9 +18,9 @@ Subject.prototype.wait = function (timeout) {
         waiter.timeout = null;
       }
       if (!noRemove) {
-        var pos = this.waiters.indexOf(waiter);
+        var pos = self.waiters.indexOf(waiter);
         if (pos > -1) {
-          this.waiters.splice(pos, 1);
+          self.waiters.splice(pos, 1);
         }
       }
       resolve();

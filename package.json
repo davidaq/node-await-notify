@@ -1,6 +1,6 @@
 {
   "name": "await-notify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Java like wait and notify for JavaScript ES7 async/await",
   "main": "index.js",
   "scripts": {

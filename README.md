@@ -91,7 +91,6 @@ Use without async/await
 
 Under the hood, async/await are just sugar syntax for using Promise. So using promise directly is fine.
 
-
     const { Subject } = require('await-notify');
     const event = new Subject();
 

@@ -1,3 +1,6 @@
+![Build Status](https://api.travis-ci.org/davidaq/node-await-notify.svg)
+![Downloads](https://img.shields.io/npm/dm/await-notify.svg)
+
 Simple library providing Java like wait and notify functionality for async/await syntax.
 
 Works in Node (or browser via Browserify or Webpack) when Promise and async/await syntax are enabled.

@@ -8,6 +8,7 @@ Subject.prototype.wait = function (timeout) {
   this.waiters.push(waiter);
   var promise = new Promise(function (resolve) {
     var resolved = false;
+    waiter.expired = false;
     waiter.resolve = function (noRemove) {
       if (resolved) {
         return;
@@ -23,12 +24,13 @@ Subject.prototype.wait = function (timeout) {
           self.waiters.splice(pos, 1);
         }
       }
-      resolve();
+      resolve(!waiter.expired);
     };
   });
   if (timeout > 0 && isFinite(timeout)) {
     waiter.timeout = setTimeout(function () {
       waiter.timeout = null;
+      waiter.expired = true;
       waiter.resolve();
     }, timeout);
   }
